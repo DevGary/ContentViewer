@@ -1,13 +1,18 @@
 package com.devgary.contentviewer.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.devgary.contentcore.util.TAG
 import com.devgary.contentviewer.databinding.FragmentHomeBinding
+import com.devgary.contentviewer.util.hideKeyboard
+import com.devgary.contentviewer.util.onAction
 
 class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by lazy {
@@ -29,12 +34,24 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         initViewModel()
+    }
+
+    private fun initViews() {
+        binding?.apply {
+            urlEditText.onAction(EditorInfo.IME_ACTION_GO) {
+                hideKeyboard()
+                homeViewModel.loadContent(urlEditText.text.toString())
+            }
+        } ?: run {
+            Log.e(TAG, "Trying to access ViewBinding that is null")
+        }
     }
 
     private fun initViewModel() {
         homeViewModel.content.observe(viewLifecycleOwner) {
-            binding?.contentview?.showContent(it)
+            binding?.contentView?.showContent(it)
         }
         
         homeViewModel.error.observe(viewLifecycleOwner) {
