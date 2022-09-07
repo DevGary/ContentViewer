@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.devgary.contentcore.util.TAG
 import com.devgary.contentviewer.databinding.FragmentHomeBinding
 import com.devgary.contentviewer.util.hideKeyboard
 import com.devgary.contentviewer.util.onAction
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private val homeViewModel: HomeViewModel by lazy {
-        ViewModelProvider(this).get(HomeViewModel::class.java)
-    }
+    private val homeViewModel: HomeViewModel by viewModels()
     
     private var binding: FragmentHomeBinding? = null
 

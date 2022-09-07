@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -55,6 +57,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     implementation "com.github.DevGary.ContentView:content-view:$versions.libVersion"
     implementation "com.github.DevGary.ContentView:content-link-api:$versions.libVersion"
@@ -67,6 +73,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 
+    implementation "com.google.dagger:hilt-android:$versions.daggerHilt"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.daggerHilt"
+    
     testImplementation "junit:junit:$versions.junit4"
     androidTestImplementation "androidx.test.ext:junit:$versions.junitAndroidExt"
 }

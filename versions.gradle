@@ -10,6 +10,7 @@ ext.versions = [
         appcompat                 : '1.5.0',
         androidKtx                : '1.8.0',
         constraintlayout          : '2.1.4',
+        daggerHilt                : '2.43.2',
         material                  : '1.6.1',
         navigation                : '2.5.1',
         recyclerview              : '1.1.0',
