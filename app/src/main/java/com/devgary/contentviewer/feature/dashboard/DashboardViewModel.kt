@@ -1,4 +1,4 @@
-package com.devgary.contentviewer.ui.dashboard
+package com.devgary.contentviewer.feature.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

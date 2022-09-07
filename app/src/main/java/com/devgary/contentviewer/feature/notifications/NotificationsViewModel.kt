@@ -1,4 +1,4 @@
-package com.devgary.contentviewer.ui.notifications
+package com.devgary.contentviewer.feature.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

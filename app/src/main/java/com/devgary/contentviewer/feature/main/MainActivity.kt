@@ -1,4 +1,4 @@
-package com.devgary.contentviewer
+package com.devgary.contentviewer.feature.main
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.devgary.contentviewer.R
 import com.devgary.contentviewer.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
+            R.id.navigation_viewer, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

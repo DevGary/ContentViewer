@@ -1,4 +1,4 @@
-package com.devgary.contentviewer.ui.home
+package com.devgary.contentviewer.feature.viewer
 
 import android.os.Bundle
 import android.util.Log
@@ -16,8 +16,8 @@ import com.devgary.contentviewer.util.onAction
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private val homeViewModel: HomeViewModel by viewModels()
+class ViewerFragment : Fragment() {
+    private val viewerViewModel: ViewerViewModel by viewModels()
     
     private var binding: FragmentHomeBinding? = null
 
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         binding?.apply {
             urlEditText.onAction(EditorInfo.IME_ACTION_GO) {
                 hideKeyboard()
-                homeViewModel.loadContent(urlEditText.text.toString())
+                viewerViewModel.loadContent(urlEditText.text.toString())
             }
         } ?: run {
             Log.e(TAG, "Trying to access ViewBinding that is null")
@@ -50,11 +50,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        homeViewModel.content.observe(viewLifecycleOwner) {
+        viewerViewModel.content.observe(viewLifecycleOwner) {
             binding?.contentView?.showContent(it)
         }
         
-        homeViewModel.error.observe(viewLifecycleOwner) {
+        viewerViewModel.error.observe(viewLifecycleOwner) {
             showErrorMessage(it)
         }
     }

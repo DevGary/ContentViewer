@@ -1,4 +1,4 @@
-package com.devgary.contentviewer.ui.home
+package com.devgary.contentviewer.feature.viewer
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class ViewerViewModel @Inject constructor(
     private val contentLinkHandler: ContentLinkHandler,
 ) : ViewModel() {
 
