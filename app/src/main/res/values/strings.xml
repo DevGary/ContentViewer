@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ContentViewer</string>
     <string name="title_viewer">Viewer</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_history">History</string>
     <string name="title_notifications">Notifications</string>
     <string name="enter_content_url_hint">Enter Content Url…</string>
 </resources>
